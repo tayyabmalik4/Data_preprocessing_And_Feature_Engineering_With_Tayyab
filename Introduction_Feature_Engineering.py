@@ -36,3 +36,13 @@
 # ---(3)-matplotlib
 # ---(4)-Seaborn
 # ---(5)-scikit learn 
+# ////Mathematics study
+# ---(1)-Statistics
+# ---(2)-Probability
+# ---(3)-Calculus
+# ---(4)-Linear Algebra
+
+# *******Software or IDE which we use 
+# ----we use Anaconda(jupyter & spyder)
+# ----But we use VS code because we uploaded the files in github and if we use jupyter notebook than we no read the code in the github directly
+ 
