@@ -108,4 +108,14 @@ cat_vars=['LotConfig','Exterior2nd','KitchenQual']
 for cat_var,num_var_miss in zip(cat_vars,num_vars_miss):
     for var_class in df[cat_var].unique():
         df_copy.update(df[df.loc[:,cat_var]==var_class][num_var_miss].replace(np.nan,df[df.loc[:,cat_var]==var_class][num_var_miss].mean()))
-print(df_copy[num_vars_miss].isnull().sum())
+# print(df_copy[num_vars_miss].isnull().sum())
+
+# -----For checking the difference of Real Dataset and modified dataset we use subplot and also for loop
+plt.figure(figsize=(13,13))
+sns.set()
+for i,var in enumerate(num_vars_miss):
+    plt.subplot(2,2,i+1)
+    sns.distplot(df[var],bins=20,kde_kws={'linewidth':8,'color':'r'},label='Original')
+    sns.distplot(df_copy[var],bins=20,kde_kws={'linewidth':5,'color':'g'},label='Mean')
+    plt.legend()
+plt.show()
