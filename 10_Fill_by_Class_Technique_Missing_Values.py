@@ -105,17 +105,35 @@ cat_vars=['LotConfig','MasVnrType','GarageType']
 # -----Now we printout by the other cat_vars
 num_vars_miss=['LotFrontage', 'MasVnrArea', 'GarageYrBlt']
 cat_vars=['LotConfig','Exterior2nd','KitchenQual'] 
-for cat_var,num_var_miss in zip(cat_vars,num_vars_miss):
-    for var_class in df[cat_var].unique():
-        df_copy.update(df[df.loc[:,cat_var]==var_class][num_var_miss].replace(np.nan,df[df.loc[:,cat_var]==var_class][num_var_miss].mean()))
+# for cat_var,num_var_miss in zip(cat_vars,num_vars_miss):
+#     for var_class in df[cat_var].unique():
+        # df_copy.update(df[df.loc[:,cat_var]==var_class][num_var_miss].replace(np.nan,df[df.loc[:,cat_var]==var_class][num_var_miss].mean()))
 # print(df_copy[num_vars_miss].isnull().sum())
+
+# -----If we want to filling the data by class and also by median values
+df_copy_median=df.copy()
+# for cat_var,num_var_miss in zip(cat_vars,num_vars_miss):
+#     for var_class in df[cat_var].unique():
+#         df_copy_median.update(df[df.loc[:,cat_var]==var_class][num_var_miss].replace(np.nan,df[df.loc[:,cat_var]==var_class][num_var_miss].median()))
+# print(df_copy_median[num_vars_miss].isnull().sum())
 
 # -----For checking the difference of Real Dataset and modified dataset we use subplot and also for loop
 plt.figure(figsize=(13,13))
 sns.set()
+# for i,var in enumerate(num_vars_miss):
+#     plt.subplot(2,2,i+1)
+#     sns.distplot(df[var],bins=20,kde_kws={'linewidth':8,'color':'r'},label='Original')
+#     sns.distplot(df_copy[var],bins=20,kde_kws={'linewidth':5,'color':'g'},label='Mean')
+#     sns.distplot(df_copy_median[var],bins=20,kde_kws={'linewidth':3,'color':'k'},label='Median')
+#     plt.legend()
+# plt.show()
+
+# -----Now we check the outlyer of dataFrames so we use boxplot
 for i,var in enumerate(num_vars_miss):
-    plt.subplot(2,2,i+1)
-    sns.distplot(df[var],bins=20,kde_kws={'linewidth':8,'color':'r'},label='Original')
-    sns.distplot(df_copy[var],bins=20,kde_kws={'linewidth':5,'color':'g'},label='Mean')
-    plt.legend()
-plt.show()
+    plt.subplot(3,1,1)
+    sns.boxplot(df[var])
+    plt.subplot(3,1,2)
+    sns.boxplot(df_copy[var])
+    plt.subplot(3,1,3)
+    sns.boxplot(df_copy_median[var])
+    plt.show()
