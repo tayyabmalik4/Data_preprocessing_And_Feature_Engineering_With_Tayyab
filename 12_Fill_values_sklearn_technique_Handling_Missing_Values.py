@@ -72,12 +72,32 @@ X_train[num_vars]=imputer_mean.transform(X_train[num_vars])
 test[num_vars]=imputer_mean.transform(test[num_vars])
 
 # /-----Now checking that the X_train and test df are exists the nan values or not
-print(X_train[num_vars].isnull().sum())
-print(test[num_vars].isnull().sum())
+# print(X_train[num_vars].isnull().sum())
+# print(test[num_vars].isnull().sum())
 
 
 
 
 
 
-# ----
+# ----Now we fill the nan values of categorical variables
+
+# ----Showing categorical variables
+cat_vars=X_train.select_dtypes(include='object').columns
+# print(cat_vars )
+# ----using sklearn to build a logic
+impute_mode=SimpleImputer(strategy='most_frequent')
+# ----now use fit function to contact it
+sk_fit_cat=impute_mode.fit(X_train[cat_vars])
+
+# -----to check who are classes are fill in the df we use statistics_ parameter
+# print(impute_mode.statistics_)
+
+# ----now just transform the data
+X_train[cat_vars]=impute_mode.transform(X_train[cat_vars])
+test[cat_vars]=impute_mode.transform(test[cat_vars])
+
+
+# -----Now just check it the categorical variables nan values
+print(X_train[cat_vars].isnull().sum())
+print(test[cat_vars].isnull().sum())
