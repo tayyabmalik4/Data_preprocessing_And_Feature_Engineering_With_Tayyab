@@ -93,6 +93,8 @@ X_train_clean_miss_var=pd.DataFrame(X_train_clean,columns=num_var_mean+num_var_m
 print(X_train_clean_miss_var.shape)
 
 # ----checking that the data achully added or not then we use this method
-print(train["Alley"].value_counts())
-print(X_train_clean_miss_var["Alley"].value_counts())
-print(X_train_clean_miss_var["MiscFeature"].value_counts())
+# print(train["Alley"].value_counts())
+# print(X_train_clean_miss_var["Alley"].value_counts())
+# print(X_train_clean_miss_var["MiscFeature"].value_counts())
+
+
