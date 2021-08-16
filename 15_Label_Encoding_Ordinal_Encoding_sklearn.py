@@ -7,7 +7,7 @@
 
 # -----Label Encoding Definition----Label Encoding apply on ordinal and nominal categorical variables----this is the impact of machine learing so we do not use this function we use Ordinal Encoding
 
-# -----when we convert the nominal data converts numaric data than this is picking as a Word wise----for example--- A refers to 1 and B refers to 2 etc
+# (15)-----when we convert the nominal data converts numaric data than this is picking as a Word wise----for example--- A refers to 1 and B refers to 2 etc
 
 # /------Ordinal Encoding Definition----Ordinal Encoding apply on ordinal categorical variables.
 

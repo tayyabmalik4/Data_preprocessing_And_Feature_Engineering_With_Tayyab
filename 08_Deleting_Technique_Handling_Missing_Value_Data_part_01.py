@@ -135,7 +135,7 @@ categorical=['MSZoning', 'Street', 'LotShape', 'LandContour', 'Utilities',
 
 # -----first we showing all the categories
 cat_count=df['MSZoning'].value_counts()
-# print(cat1)
+# print(cat_count)
 # ----than we showing the shape of the dataFrame and we just show the rows of the data Frame----0 means rows
 cat_shape=df.shape[0]
 # print(cat_shape)
